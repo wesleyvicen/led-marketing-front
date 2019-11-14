@@ -22,7 +22,6 @@
   flex-direction: column;
 }
 .ad {
-  display: flex;
   flex: 9;
   background-color: yellow;
 

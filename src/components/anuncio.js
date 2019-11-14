@@ -1,40 +1,35 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
 import "../styles/style.css";
+import ImageGallery from "react-image-gallery";
 
-class Anuncio extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      index: 0,
-      direction: null
-    };
-  }
-
-  handleSelect = (selectedIndex, e) => {
-    this.setState({ index: selectedIndex });
-  };
-
+class Anuncio extends React.Component {
   render() {
+    const images = [
+      {
+        original: "https://picsum.photos/id/1018/1000/600/",
+        thumbnail: "https://picsum.photos/id/1018/250/150/"
+      },
+      {
+        original: "https://picsum.photos/id/1015/1000/600/",
+        thumbnail: "https://picsum.photos/id/1015/250/150/"
+      },
+      {
+        original: "https://picsum.photos/id/1019/1000/600/",
+        thumbnail: "https://picsum.photos/id/1019/250/150/"
+      }
+    ];
     return (
       <div className={"ad"}>
-        <Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-        </Carousel>
+        <ImageGallery
+          slideInterval={parseInt(2000)}
+          slideDuration={300}
+          items={images}
+          showNav={false}
+          showIndex={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          autoPlay
+        />
       </div>
     );
   }
