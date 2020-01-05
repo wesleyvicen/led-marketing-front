@@ -1,38 +1,46 @@
-import React from "react";
-import "../styles/style.css";
-import ImageGallery from "react-image-gallery";
+/* eslint-disable jsx-a11y/alt-text */
+import React, { Component } from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
-class Anuncio extends React.Component {
-  render() {
-    const images = [
-      {
-        original: "https://picsum.photos/id/1018/1000/600/",
-        thumbnail: "https://picsum.photos/id/1018/250/150/"
-      },
-      {
-        original: "https://picsum.photos/id/1015/1000/600/",
-        thumbnail: "https://picsum.photos/id/1015/250/150/"
-      },
-      {
-        original: "https://picsum.photos/id/1019/1000/600/",
-        thumbnail: "https://picsum.photos/id/1019/250/150/"
-      }
-    ];
-    return (
-      <div className={"ad"}>
-        <ImageGallery
-          slideInterval={parseInt(2000)}
-          slideDuration={300}
-          items={images}
-          showNav={false}
-          showIndex={false}
-          showFullscreenButton={false}
-          showPlayButton={false}
-          autoPlay
-        />
-      </div>
-    );
-  }
+class Anuncio extends Component {
+	render() {
+		const images = [
+			{
+				item: 'https://picsum.photos/id/1020/1000/600/',
+				Legend: 'Legenda 1'
+			},
+			{
+				item: 'https://picsum.photos/id/1015/1000/600/',
+				thumbnail: 'Legenda 2'
+			},
+			{
+				item: 'https://picsum.photos/id/1019/1000/600/',
+				thumbnail: 'Legenda 3'
+			}
+		];
+
+		return (
+			<div className={'ad'}>
+				<Carousel
+					autoPlay
+					interval="3000"
+					showThumbs={false}
+					infiniteLoop={true}
+					showArrows={false}
+					showStatus={false}
+					showIndicators={false}
+				>
+					{images.map((item) => (
+						<div>
+							<img src={item.item} />
+							<p className="legend">{item.thumbnail}</p>
+						</div>
+					))}
+				</Carousel>
+			</div>
+		);
+	}
 }
 
 export default Anuncio;
