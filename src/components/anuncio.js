@@ -1,25 +1,19 @@
-import React from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import React, { useState } from 'react';
+import { Carousel } from 'react-bootstrap';
 
 function Anuncio(props) {
 	const { anuncio } = props;
+
 	return (
 		<div className={'ad'}>
-			<Carousel
-				autoPlay
-				interval="300"
-				showThumbs={false}
-				infiniteLoop={true}
-				showArrows={true}
-				showStatus={false}
-				showIndicators={false}
-			>
+			<Carousel fade={true} controls={false} interval={3000} indicators={false}>
 				{anuncio.map((anuncios) => (
-					<div key={anuncios.id}>
-						<img src={anuncios.urlImage} alt={'anuncio'} />
-						<p className="legend">{anuncios.localizacao}</p>
-					</div>
+					<Carousel.Item>
+						<img className="d-block w-100" src={anuncios.urlImage} alt="First slide" />
+						{/* <Carousel.Caption>
+							<h3>{anuncios.localizacao}</h3>
+						</Carousel.Caption> */}
+					</Carousel.Item>
 				))}
 			</Carousel>
 		</div>

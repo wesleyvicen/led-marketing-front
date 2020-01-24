@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from './services/api';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/style.css';
 
 import Anuncio from './components/anuncio';
@@ -21,7 +22,7 @@ function App() {
 	}, []);
 
 	return (
-		<div className="container mt-5">
+		<div className="container2">
 			<div className={'left'}>
 				{console.log(anuncios)}
 				<Anuncio anuncio={anuncios} />
