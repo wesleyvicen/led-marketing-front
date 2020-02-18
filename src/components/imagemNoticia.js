@@ -1,11 +1,11 @@
-import React from "react";
-import { Carousel } from "react-bootstrap";
-import "../styles/style.css";
+import React from 'react';
+import { Carousel } from 'react-bootstrap';
+import '../styles/style.css';
 
 function Imagem(props) {
   const { noticia } = props;
   return (
-    <div className={"image"}>
+    <div className={'image'}>
       <Carousel
         fade={true}
         controls={false}
@@ -16,7 +16,7 @@ function Imagem(props) {
         {noticia.map(noticias => (
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="u-containProse"
               src={noticias.urlToImage}
               alt="First slide"
             />

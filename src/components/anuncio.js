@@ -16,7 +16,7 @@ function Anuncio(props) {
         {anuncio.map(anuncios => (
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-100 anuncio"
               src={anuncios.urlImage}
               alt="First slide"
             />
