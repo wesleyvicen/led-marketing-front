@@ -1,15 +1,21 @@
-import * as React from 'react';
+import React from 'react';
+import { Carousel } from 'react-bootstrap';
 import "../styles/style.css"
 
-class Imagem extends React.PureComponent{
-
-  render() {
+function Imagem(props) {
+  const { noticia } = props;
     return(
       <div className={"image"}>
-      <img src={'https://s2.glbimg.com/AWr593Fx5NnL3v40HLNGs-hIObA=/0x0:1280x661/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/M/A/5JX5IVTMqeaeXQAMPfJA/cedulas-falsas.jpeg'} alt="Minha Figura"/>
+     <Carousel fade={true} controls={false} interval={6000} pauseOnHover={false} indicators={false}>
+				{noticia.map((noticias) => (
+					<Carousel.Item>
+						<img className="d-block w-100" src={noticias.urlToImage} alt="First slide"/>
+
+					</Carousel.Item>
+				))}
+			</Carousel>
       </div>
     )
-  }
 }
 
 export default Imagem;

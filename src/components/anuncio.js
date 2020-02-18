@@ -6,13 +6,11 @@ function Anuncio(props) {
 
 	return (
 		<div className={'ad'}>
-			<Carousel fade={true} controls={false} interval={3000} indicators={false}>
+			<Carousel fade={true} controls={false} interval={3000} pauseOnHover={false} indicators={false}>
 				{anuncio.map((anuncios) => (
 					<Carousel.Item>
 						<img className="d-block w-100" src={anuncios.urlImage} alt="First slide" />
-						{/* <Carousel.Caption>
-							<h3>{anuncios.localizacao}</h3>
-						</Carousel.Caption> */}
+
 					</Carousel.Item>
 				))}
 			</Carousel>

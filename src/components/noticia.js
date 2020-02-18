@@ -1,15 +1,21 @@
-import * as React from 'react';
+import React from 'react';
+import { Carousel } from 'react-bootstrap';
 import "../styles/style.css"
 
-class Noticia extends React.PureComponent{
-
-  render() {
+function Noticia(props) {
+	const { noticia } = props;
     return(
       <div className={"news"}>
-          <h1>Mulher é presa em flagrante com cédulas falsas compradas na internet, diz PF</h1>
+            <Carousel fade={true} controls={false} interval={6000} pauseOnHover={false} indicators={false}>
+				{noticia.map((noticias) => (
+					<Carousel.Item>
+						<h1>{noticias.title}</h1>
+
+					</Carousel.Item>
+				))}
+			</Carousel>
       </div>
-    )
-  }
+    );
 }
 
 export default Noticia;

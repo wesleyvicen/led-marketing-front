@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-const api = axios.create({
+export const api = axios.create({
 	baseURL: 'https://led-marketing-backend.herokuapp.com'
-});
+})
 
-export default api;
+export const apiNoticia = axios.create({
+	baseURL: 'http://newsapi.org/v2'
+})
+
+
