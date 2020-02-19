@@ -15,7 +15,7 @@ function Noticia(props) {
       >
         {noticia.map(noticias => (
           <Carousel.Item>
-            <h1>{noticias.title}</h1>
+            <h2>{noticias.title}</h2>
           </Carousel.Item>
         ))}
       </Carousel>
