@@ -13,8 +13,8 @@ function Imagem(props) {
         pauseOnHover={false}
         indicators={false}
       >
-        {noticia.map(noticias => (
-          <Carousel.Item>
+        {noticia.map((noticias, key) => (
+          <Carousel.Item key={key}>
             <img
               className="u-containProse"
               src={noticias.urlToImage}

@@ -35,7 +35,6 @@ function Main() {
   return (
     <div className="container2">
       <div className={'left'}>
-        {console.log(noticias)}
         <Anuncio anuncio={anuncios} />
         <Noticia noticia={noticias} />
       </div>

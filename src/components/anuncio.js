@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
 function Anuncio(props) {
@@ -13,8 +13,8 @@ function Anuncio(props) {
         pauseOnHover={false}
         indicators={false}
       >
-        {anuncio.map(anuncios => (
-          <Carousel.Item>
+        {anuncio.map((anuncios, key) => (
+          <Carousel.Item key={key}>
             <img
               className="d-block w-100 anuncio"
               src={anuncios.urlImage}

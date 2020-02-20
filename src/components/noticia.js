@@ -13,8 +13,8 @@ function Noticia(props) {
         pauseOnHover={false}
         indicators={false}
       >
-        {noticia.map(noticias => (
-          <Carousel.Item>
+        {noticia.map((noticias, key) => (
+          <Carousel.Item key={key}>
             <h2>{noticias.title}</h2>
           </Carousel.Item>
         ))}
