@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "https://led-marketing-backend.herokuapp.com"
+  baseURL: 'http://localhost:3333',
 });
 
 export const apiNoticia = axios.create({
-  baseURL: "http://newsapi.org/v2"
+  baseURL: 'http://newsapi.org/v2',
 });
