@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
 
 import '../styles/sidebar.css';
@@ -9,6 +9,21 @@ function Cadastro() {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [nincho, setNincho] = useState('');
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+
+        setLatitude(latitude);
+        setLongitude(longitude);
+      },
+      err => {
+        console.log(err);
+      },
+      { timeout: 30000 }
+    );
+  }, []);
 
   async function handleAddAnuncio(e) {
     e.preventDefault();
