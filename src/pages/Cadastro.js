@@ -13,7 +13,7 @@ function Cadastro() {
   async function handleAddAnuncio(e) {
     e.preventDefault();
 
-    const response = await api.post('/anuncio', {
+    const response = await api.post('/ad/add', {
       nameResp,
       urlImage,
       latitude,
