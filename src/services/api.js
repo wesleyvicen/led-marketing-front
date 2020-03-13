@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from './auth';
 
 export const api = axios.create({
-  baseURL: 'https://led-marketing-backend.herokuapp.com',
+  baseURL: 'http://led-marketing-backend.herokuapp.com',
 });
 
 api.interceptors.request.use(async config => {

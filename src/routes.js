@@ -7,6 +7,7 @@ import Main from './pages/Main';
 import Cadastro from './pages/Cadastro';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -24,10 +25,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={SignIn} />
+      <Route exact path="/" component={Main} />
+      <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/login" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <PrivateRoute path="/app" component={() => <h1>App</h1>} />
-      <PrivateRoute path="/run" component={Main} />
       <PrivateRoute path="/cadastro" component={Cadastro} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>

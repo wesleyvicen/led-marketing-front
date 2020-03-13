@@ -16,7 +16,7 @@ function Main() {
 
   useEffect(() => {
     async function loadAnuncios() {
-      const response = await api.get('/news/lists');
+      const response = await api.get('/ad/lists');
       setAnuncios(response.data);
     }
     loadAnuncios();

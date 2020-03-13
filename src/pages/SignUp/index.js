@@ -53,7 +53,7 @@ class SignUp extends Component {
           />
           <button type="submit">Cadastrar</button>
           <hr />
-          <Link to="/">Fazer Login</Link>
+          <Link to="/login">Fazer Login</Link>
         </Form>
       </Container>
     );
