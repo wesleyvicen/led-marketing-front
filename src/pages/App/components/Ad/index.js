@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 
 import { Pin } from './styles';
 
-const intlMonetary = new Intl.NumberFormat('pt-BR', {
-  style: 'currency',
-  currency: 'BRL',
-  minimumFractionDigits: 2,
-});
+// const intlMonetary = new Intl.NumberFormat('pt-BR', {
+//   style: 'currency',
+//   currency: 'BRL',
+//   minimumFractionDigits: 2,
+// });
 
 const Ads = ({ ads }) =>
   ads.map(ad => (
