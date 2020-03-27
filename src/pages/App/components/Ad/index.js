@@ -11,25 +11,26 @@ const intlMonetary = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 2,
 });
 
-const Ad = ({ ad }) =>
-  ad.map(ads => (
-    <Marker key={ads.id} longitude={ads.longitude} latitude={ads.latitude}>
+const Ads = ({ ads }) =>
+  ads.map(ad => (
+    <Marker key={ad.id} longitude={ad.longitude} latitude={ad.latitude}>
       <Pin>
-        <Link to="">{intlMonetary.format(ads.price)}</Link>
+        <Link>{ad.nincho}</Link>
       </Pin>
     </Marker>
   ));
 
-Ad.propTypes = {
-  ad: PropTypes.arrayOf(
+Ads.propTypes = {
+  ads: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       title: PropTypes.string,
       price: PropTypes.number,
       longitude: PropTypes.number,
       latitude: PropTypes.number,
+      nincho: PropTypes.string,
     })
   ).isRequired,
 };
 
-export default Ad;
+export default Ads;

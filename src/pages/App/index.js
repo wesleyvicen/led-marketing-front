@@ -27,8 +27,8 @@ class Map extends Component {
 
   state = {
     viewport: {
-      latitude: -8.0398154,
-      longitude: -34.961676,
+      latitude: -7.657346400000001,
+      longitude: -35.3136897,
       zoom: 12.8,
       bearing: 0,
       pitch: 0,
@@ -69,7 +69,7 @@ class Map extends Component {
         width={width}
         height={height}
         {...this.state.viewport}
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        mapStyle="mapbox://styles/mapbox/light-v9"
         mapboxApiAccessToken={TOKEN}
         onViewportChange={viewport => this.setState({ viewport })}
         onViewStateChange={this.updateAdsLocalization.bind(this)}

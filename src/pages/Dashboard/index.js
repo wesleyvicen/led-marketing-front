@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { VerticalMenu, Container } from './style';
+import { withRouter } from 'react-router-dom';
 import Navbar from '../App/components/Navbar';
+import Map from '../App/';
 class Dashboard extends Component {
   render() {
     return (
       <>
         <Navbar />
+        <Map />
       </>
     );
   }
