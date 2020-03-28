@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
 
 import '../styles/sidebar.css';
+import Navbar from '../pages/App/components/Navbar';
 
 function Cadastro() {
   const [nameResp, setNameResp] = useState('');
@@ -49,67 +50,70 @@ function Cadastro() {
   }
 
   return (
-    <div className="container2">
-      <aside>
-        <strong>Cadastrar</strong>
-        <form onSubmit={handleAddAnuncio}>
-          <div className={'input-block'}>
-            <label htmlFor={'nameResp'}>Nome do Responsavel</label>
-            <input
-              className={'nameResp'}
-              id={'nameResp'}
-              value={nameResp}
-              onChange={e => setNameResp(e.target.value)}
-              required
-            />
-          </div>
-          <div className={'input-block'}>
-            <label htmlFor={'urlImage'}>URL da imagem</label>
-            <input
-              className={'urlImage'}
-              id={'urlImage'}
-              value={urlImage}
-              onChange={e => setUrlImage(e.target.value)}
-              required
-            />
-          </div>
-          <div className={'input-block'}>
-            <label htmlFor={'latitude'}>Latitude</label>
-            <input
-              className={'latitude'}
-              id={'latitude'}
-              value={latitude}
-              onChange={e => setLatitude(e.target.value)}
-              required
-            />
-          </div>
-          <div className={'input-block'}>
-            <label htmlFor={'longitude'}>Longitude</label>
-            <input
-              className={'longitude'}
-              id={'longitude'}
-              value={longitude}
-              onChange={e => setLongitude(e.target.value)}
-              required
-            />
-          </div>
-          <div className={'input-block'}>
-            <label htmlFor={'nincho'}>Nincho do anúncio</label>
-            <select
-              class="form-control"
-              id={'nincho'}
-              value={nincho}
-              onChange={e => setNincho(e.target.value)}
-            >
-              <option />
-              <option value={'games'}>Jogos</option>
-              <option value={'food'}>Comida</option>
-            </select>
-          </div>
-          <button type={'submit'}>Salvar</button>
-        </form>
-      </aside>
-    </div>
+    <>
+      <Navbar />
+      <div className="container2">
+        <aside>
+          <strong>Cadastrar</strong>
+          <form onSubmit={handleAddAnuncio}>
+            <div className={'input-block'}>
+              <label htmlFor={'nameResp'}>Nome do Responsavel</label>
+              <input
+                className={'nameResp'}
+                id={'nameResp'}
+                value={nameResp}
+                onChange={e => setNameResp(e.target.value)}
+                required
+              />
+            </div>
+            <div className={'input-block'}>
+              <label htmlFor={'urlImage'}>URL da imagem</label>
+              <input
+                className={'urlImage'}
+                id={'urlImage'}
+                value={urlImage}
+                onChange={e => setUrlImage(e.target.value)}
+                required
+              />
+            </div>
+            <div className={'input-block'}>
+              <label htmlFor={'latitude'}>Latitude</label>
+              <input
+                className={'latitude'}
+                id={'latitude'}
+                value={latitude}
+                onChange={e => setLatitude(e.target.value)}
+                required
+              />
+            </div>
+            <div className={'input-block'}>
+              <label htmlFor={'longitude'}>Longitude</label>
+              <input
+                className={'longitude'}
+                id={'longitude'}
+                value={longitude}
+                onChange={e => setLongitude(e.target.value)}
+                required
+              />
+            </div>
+            <div className={'input-block'}>
+              <label htmlFor={'nincho'}>Nincho do anúncio</label>
+              <select
+                class="form-control"
+                id={'nincho'}
+                value={nincho}
+                onChange={e => setNincho(e.target.value)}
+              >
+                <option />
+                <option value={'games'}>Jogos</option>
+                <option value={'food'}>Comida</option>
+              </select>
+            </div>
+            <button type={'submit'}>Salvar</button>
+          </form>
+        </aside>
+      </div>
+    </>
   );
 }
 

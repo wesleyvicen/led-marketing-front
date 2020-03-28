@@ -4,7 +4,7 @@ export const Container = styled.div`
   .sidebarStyle {
     display: inline-block;
     position: absolute;
-    top: 0;
+    top: 1;
     left: 0;
     margin: 12px;
     background-color: #404040;
