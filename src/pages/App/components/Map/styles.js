@@ -15,7 +15,7 @@ export const Container = styled.div`
   }
 
   .mapContainer {
-    position: unset;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;

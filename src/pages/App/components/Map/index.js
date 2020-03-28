@@ -9,7 +9,7 @@ class Map extends Component {
     this.state = {
       lat: -7.6573384,
       lng: -35.3138423,
-      zoom: 10,
+      zoom: 12,
     };
   }
 
@@ -18,11 +18,21 @@ class Map extends Component {
 
     const map = new mapboxgl.Map({
       container: this.mapRef.current,
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
       zoom,
     });
-
+    new mapboxgl.Popup({
+      closeButton: false,
+      offset: 10,
+      className: 'currentPopup',
+      anchor: 'left',
+    })
+      .setLngLat([-35.3229506, -7.6553289])
+      .setText('You are here')
+      .addTo(map);
+    new mapboxgl.Marker().setLngLat([-35.3138423, -7.6573384]).addTo(map);
+    new mapboxgl.Marker().setLngLat([-35.3138423, -7.7573384]).addTo(map);
     map.on('move', () => {
       const { lng, lat } = map.getCenter();
 
@@ -33,6 +43,7 @@ class Map extends Component {
       });
     });
   }
+
   render() {
     const { lng, lat, zoom } = this.state;
     return (
