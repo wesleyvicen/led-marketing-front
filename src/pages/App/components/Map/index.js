@@ -3,11 +3,15 @@ import { withRouter } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 import { Container, Pin } from './styles';
 import { api } from '../../../../services/api';
-const AnyReactComponent = ({ text }) => (
-  <Pin>
-    <h1>{text}</h1>
-  </Pin>
-);
+const AnyReactComponent = ({ text }) =>
+  text === 'games' ? (
+    <img
+      src={require('../../../../assets/icons-marker-games.png')}
+      alt={text}
+    />
+  ) : (
+    <img src={require('../../../../assets/icons-marker-food.png')} alt={text} />
+  );
 class Map extends Component {
   static defaultProps = {
     center: {
@@ -40,7 +44,7 @@ class Map extends Component {
         <div style={{ height: '92vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: 'AIzaSyDg81CEwDyJN8qBtPIIOnCf9uA3G76nDYE',
+              key: 'AIzaSyBXG1URJBG1XJ4WouLEIGwyBUeJYnJ6N7I',
             }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
@@ -49,7 +53,7 @@ class Map extends Component {
               <AnyReactComponent
                 lat={ad.latitude}
                 lng={ad.longitude}
-                text={ad.nameResp}
+                text={ad.nincho}
               />
             ))}
           </GoogleMapReact>

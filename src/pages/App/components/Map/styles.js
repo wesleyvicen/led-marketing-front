@@ -24,7 +24,7 @@ export const Container = styled.div`
 `;
 
 export const Pin = styled.div`
-  * {
-    background-image: url('../../../../assets/megaphone.png') !important;
+  img:hover {
+    background-image: url(require('../../../../assets/megaphone.png'));
   }
 `;
