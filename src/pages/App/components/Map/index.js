@@ -1,57 +1,59 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import mapboxgl from 'mapbox-gl';
-import { Container } from './styles';
+import GoogleMapReact from 'google-map-react';
+import { Container, Pin } from './styles';
+import { api } from '../../../../services/api';
+const AnyReactComponent = ({ text }) => (
+  <Pin>
+    <h1>{text}</h1>
+  </Pin>
+);
 class Map extends Component {
-  mapRef = React.createRef();
-  constructor(props) {
-    super(props);
-    this.state = {
+  static defaultProps = {
+    center: {
       lat: -7.6573384,
-      lng: -35.3138423,
-      zoom: 12,
-    };
-  }
+      lng: -35.3136997,
+    },
+    zoom: 11,
+  };
+  state = {
+    ads: [],
+  };
+
+  loadAds = async () => {
+    try {
+      const response = await api.get('/ad/lists');
+      this.setState({ ads: response.data });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   componentDidMount() {
-    const { lng, lat, zoom } = this.state;
-
-    const map = new mapboxgl.Map({
-      container: this.mapRef.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [lng, lat],
-      zoom,
-    });
-    new mapboxgl.Popup({
-      closeButton: false,
-      offset: 10,
-      className: 'currentPopup',
-      anchor: 'left',
-    })
-      .setLngLat([-35.3229506, -7.6553289])
-      .setText('You are here')
-      .addTo(map);
-    new mapboxgl.Marker().setLngLat([-35.3138423, -7.6573384]).addTo(map);
-    new mapboxgl.Marker().setLngLat([-35.3138423, -7.7573384]).addTo(map);
-    map.on('move', () => {
-      const { lng, lat } = map.getCenter();
-
-      this.setState({
-        lng: lng.toFixed(4),
-        lat: lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2),
-      });
-    });
+    this.loadAds();
   }
 
   render() {
-    const { lng, lat, zoom } = this.state;
+    const { ads } = this.state;
     return (
       <Container>
-        <div className="sidebarStyle">
-          {`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`}
+        <div style={{ height: '92vh', width: '100%' }}>
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: 'AIzaSyDg81CEwDyJN8qBtPIIOnCf9uA3G76nDYE',
+            }}
+            defaultCenter={this.props.center}
+            defaultZoom={this.props.zoom}
+          >
+            {ads.map((ad, key) => (
+              <AnyReactComponent
+                lat={ad.latitude}
+                lng={ad.longitude}
+                text={ad.nameResp}
+              />
+            ))}
+          </GoogleMapReact>
         </div>
-        <div ref={this.mapRef} className="mapContainer" />
       </Container>
     );
   }

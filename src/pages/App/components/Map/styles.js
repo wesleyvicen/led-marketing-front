@@ -22,3 +22,9 @@ export const Container = styled.div`
     bottom: 0;
   }
 `;
+
+export const Pin = styled.div`
+  * {
+    background-image: url('../../../../assets/megaphone.png') !important;
+  }
+`;
