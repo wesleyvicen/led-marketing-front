@@ -17,7 +17,7 @@ function Imagem(props) {
           <Carousel.Item key={key}>
             <img
               className="u-containProse"
-              src={noticias.urlToImage}
+              src={noticias.urlImage}
               alt="First slide"
             />
           </Carousel.Item>

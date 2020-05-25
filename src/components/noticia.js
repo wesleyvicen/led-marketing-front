@@ -15,7 +15,7 @@ function Noticia(props) {
       >
         {noticia.map((noticias, key) => (
           <Carousel.Item key={key}>
-            <h2>{noticias.title}</h2>
+            <h2>{noticias.texto}</h2>
           </Carousel.Item>
         ))}
       </Carousel>

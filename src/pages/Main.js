@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { api, apiNoticia } from '../services/api';
+import { api } from '../services/api';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/style.css';
@@ -24,10 +24,8 @@ function Main() {
 
   useEffect(() => {
     async function loadNoticias() {
-      const response = await apiNoticia.get(
-        'top-headlines?country=br&apiKey=9dc6a5ed9f0a4df49d2a23fc8d47fa89'
-      );
-      setNoticias(response.data.articles);
+      const response = await api.get('/news/lists');
+      setNoticias(response.data);
     }
     loadNoticias();
   }, []);
