@@ -13,7 +13,7 @@ import App from './pages/App';
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
+    render={(props) =>
       isAuthenticated() ? (
         <Component {...props} />
       ) : (
@@ -27,7 +27,7 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Main} />
-      <Route path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/dashboard" component={Dashboard} />
       <Route path="/login" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <PrivateRoute path="/app" component={App} />
