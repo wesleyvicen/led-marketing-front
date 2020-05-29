@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
-import { Container, Pin } from './styles';
+import { Container } from './styles';
 import { api } from '../../../../services/api';
 const AnyReactComponent = ({ text }) =>
   text === 'games' ? (
@@ -44,13 +44,14 @@ class Map extends Component {
         <div style={{ height: '92vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: 'AIzaSyBXG1URJBG1XJ4WouLEIGwyBUeJYnJ6N7I',
+              key: 'AIzaSyDg81CEwDyJN8qBtPIIOnCf9uA3G76nDYE',
             }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
           >
             {ads.map((ad, key) => (
               <AnyReactComponent
+                key={key}
                 lat={ad.latitude}
                 lng={ad.longitude}
                 text={ad.nincho}

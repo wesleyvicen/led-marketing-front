@@ -10,7 +10,7 @@ function Anuncio(props) {
         fade={true}
         controls={false}
         interval={3000}
-        pauseOnHover={false}
+        pause={false}
         indicators={false}
       >
         {anuncio.map((anuncios, key) => (
