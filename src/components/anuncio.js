@@ -6,13 +6,7 @@ function Anuncio(props) {
 
   return (
     <div className={'ad'}>
-      <Carousel
-        fade={true}
-        controls={false}
-        interval={3000}
-        pauseOnHover={false}
-        indicators={false}
-      >
+      <Carousel fade={true} controls={false} interval={1000} indicators={false}>
         {anuncio.map((anuncios, key) => (
           <Carousel.Item key={key}>
             <img
