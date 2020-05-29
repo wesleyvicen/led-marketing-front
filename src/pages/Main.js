@@ -24,8 +24,10 @@ function Main() {
 
   useEffect(() => {
     async function loadNoticias() {
-      const response = await api.get('/news/lists');
-      setNoticias(response.data);
+      const response = await apiNoticia.get(
+        'top-headlines?country=br&apiKey=9dc6a5ed9f0a4df49d2a23fc8d47fa89'
+      );
+      setNoticias(response.data.articles);
     }
     loadNoticias();
   }, []);
