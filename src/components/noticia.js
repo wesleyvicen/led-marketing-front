@@ -6,7 +6,13 @@ function Noticia(props) {
   const { noticia } = props;
   return (
     <div className={'news'}>
-      <Carousel fade={true} controls={false} interval={6000} indicators={false}>
+      <Carousel
+        fade={true}
+        controls={false}
+        interval={6000}
+        pause={false}
+        indicators={false}
+      >
         {noticia.map((noticias, key) => (
           <Carousel.Item key={key}>
             <h2>{noticias.texto}</h2>

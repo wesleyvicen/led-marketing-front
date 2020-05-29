@@ -6,7 +6,13 @@ function Imagem(props) {
   const { noticia } = props;
   return (
     <div className={'image'}>
-      <Carousel fade={true} controls={false} interval={6000} indicators={false}>
+      <Carousel
+        fade={true}
+        controls={false}
+        interval={6000}
+        pause={false}
+        indicators={false}
+      >
         {noticia.map((noticias, key) => (
           <Carousel.Item key={key}>
             <img
