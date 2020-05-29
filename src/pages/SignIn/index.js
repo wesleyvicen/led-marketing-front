@@ -14,7 +14,7 @@ class SignIn extends Component {
     error: '',
   };
 
-  handleSignIn = async e => {
+  handleSignIn = async (e) => {
     e.preventDefault();
     const { email, password } = this.state;
     if (!email || !password) {
@@ -23,7 +23,7 @@ class SignIn extends Component {
       try {
         const response = await api.post('/sessions', { email, password });
         login(response.data.token);
-        this.props.history.push('/run');
+        this.props.history.push('/dashboard');
       } catch (err) {
         this.setState({
           error:
@@ -42,12 +42,12 @@ class SignIn extends Component {
           <input
             type="email"
             placeholder="Endereço de Email"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={(e) => this.setState({ email: e.target.value })}
           />
           <input
             type="password"
             placeholder="Senha"
-            onChange={e => this.setState({ password: e.target.value })}
+            onChange={(e) => this.setState({ password: e.target.value })}
           />
           <button type="submit">Entrar</button>
           <hr />
