@@ -2,10 +2,10 @@ import axios from 'axios';
 import { getToken } from './auth';
 
 export const api = axios.create({
-  baseURL: 'http://led-marketing-backend.herokuapp.com',
+  baseURL: 'https://led-marketing-backend.herokuapp.com',
 });
 
-api.interceptors.request.use(async config => {
+api.interceptors.request.use(async (config) => {
   const token = getToken();
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -14,5 +14,5 @@ api.interceptors.request.use(async config => {
 });
 
 export const apiNoticia = axios.create({
-  baseURL: 'http://newsapi.org/v2',
+  baseURL: 'https://newsapi.org/v2',
 });
