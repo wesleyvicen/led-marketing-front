@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
+import { Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/style.css';
@@ -27,6 +28,7 @@ function Main() {
   return (
     <div className="container2">
       <div className={'left'}>
+        <Link to={'/login'}>Login</Link>
         <Anuncio anuncio={anuncios} />
         <Noticia noticia={noticias} />
       </div>
