@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { api, apiNoticia } from '../services/api';
+import { api } from '../services/api';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/style.css';
@@ -15,19 +15,13 @@ function Main() {
   const [noticias, setNoticias] = useState([]);
 
   useEffect(() => {
-    async function loadAnuncios() {
-      const response = await api.get('/ad/lists');
-      setAnuncios(response.data);
+    async function load() {
+      const responseAd = await api.get('/ad/lists');
+      setAnuncios(responseAd.data);
+      const responseNews = await api.get('/news/lists');
+      setNoticias(responseNews.data);
     }
-    loadAnuncios();
-  }, []);
-
-  useEffect(() => {
-    async function loadNoticias() {
-      const response = await api.get('/news/lists');
-      setNoticias(response.data);
-    }
-    loadNoticias();
+    load();
   }, []);
 
   return (
